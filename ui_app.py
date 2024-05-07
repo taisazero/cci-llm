@@ -55,9 +55,9 @@ def is_llm_server_active():
     try:
         # Add an api key
         # "aewndfoa1235123"
-        response = requests.get("http://localhost:8000/v1/models", headers={"Authorization": "Bearer OnuR-l5IlfYqF8HYoTOYHAcHOXCgL5xASQM5ooGHG6A"})                                                        
+        response = requests.get("http://localhost:8000/v1/models", headers={"Authorization": "Bearer YOUR-API-KEY"})                                                        
         try:
-            backup_response = requests.get("http://cci-llm.charlotte.edu/api/v1/models", headers={"Authorization": "Bearer OnuR-l5IlfYqF8HYoTOYHAcHOXCgL5xASQM5ooGHG6A"})                                                        
+            backup_response = requests.get("http://cci-llm.charlotte.edu/api/v1/models", headers={"Authorization": "Bearer YOUR-API-KEY"})                                                        
         except:
             backup_response = requests.Response()
             backup_response.status_code = 404

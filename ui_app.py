@@ -63,10 +63,10 @@ def is_llm_server_active():
             backup_response.status_code = 404
         if response.status_code == 200:
             print("The VLLM server is running.")
-            return response.json()['data'][0]['id'], "http://localhost:8000/v1/models"
+            return response.json()['data'][0]['id'], "http://localhost:8000/v1"
         elif backup_response.status_code == 200:
             print("The VLLM server is running.")
-            return response.json()['data'][0]['id'], "https://cci-llm.charlotte.edu/api/v1/models"
+            return response.json()['data'][0]['id'], "http://cci-llm.charlotte.edu/api/v1"
         else:
             print("The VLLM server is not running.")
             return False, ""
@@ -123,13 +123,12 @@ class Streamlit_User_Session:
         # tool_memory_handler = SetToolMemoryHandler(tool_memory)
 
     
-
         # create a tool for each intent
         self.tools = []
         
         # initialize LLM
         # load openai model if llm server is running
-        print(f"Initializing with")
+        print(f"Initializing with {resources}")
         self.llm = OpenAIVLLM(
                 model = resources, 
                 max_tokens = session_state['max_tokens'],

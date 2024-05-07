@@ -1,7 +1,7 @@
 # pip install openai
 from openai import OpenAI
 
-client = OpenAI(api_key = "OnuR-l5IlfYqF8HYoTOYHAcHOXCgL5xASQM5ooGHG6A")
+client = OpenAI(api_key = "YOUR-API_KEY")
 
 # Set the OpenAI API base URL
 client.base_url = "http://cci-llm.charlotte.edu/api/v1" #or machine IP: http://machine_ip:5000/v1

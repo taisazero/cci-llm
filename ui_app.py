@@ -240,8 +240,7 @@ def run(args):
     # if 'top_p' not in st.session_state:
     #     st.session_state['top_p'] = 0.7
     
-    url_params = st.experimental_get_query_params()
-    session_id = url_params.get("session_id", [None])[0]
+    session_id = st.query_params.get("session_id")
     session = get_session(args, session_id, st.session_state)
     # sidebar
     with st.sidebar:
@@ -253,8 +252,7 @@ def run(args):
             st.markdown("For any questions or feedback, please contact Erfan Al-Hossami at [ealhossa@uncc.edu](mailto:ealhossa@uncc.edu).")
         if st.button("New Session") or session_id is None:
             session_id = str(uuid.uuid4())
-            url_params["session_id"] = [session_id]
-            st.experimental_set_query_params(**url_params)
+            st.query_params.session_id = session_id
 
         
 #        st.session_state['react'] = st.toggle("Enable ReAct Prompting", value=False)
